@@ -1,0 +1,17 @@
+# Only these inputs are needed by the multi-stage build.
+**
+!Dockerfile
+!go.mod
+!go.sum
+!cmd/
+!cmd/**
+!internal/
+!internal/**
+!frontend/
+!frontend/package.json
+!frontend/package-lock.json
+!frontend/index.html
+!frontend/tsconfig.json
+!frontend/vite.config.ts
+!frontend/src/
+!frontend/src/**

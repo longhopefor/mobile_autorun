@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:17.6
+    environment:
+      POSTGRES_USER: mobile_autorun
+      POSTGRES_DB: mobile_autorun
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mobile_autorun -d mobile_autorun"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  server:
+    build: .
+    environment:
+      DATABASE_URL: postgres://mobile_autorun:${POSTGRES_PASSWORD}@postgres:5432/mobile_autorun?sslmode=disable
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD}
+      LISTEN_ADDR: 0.0.0.0:8080
+      WEB_ORIGIN: ${WEB_ORIGIN:-http://localhost:8080}
+      DATA_DIR: /app/data
+      MODEL_API_KEY: ${MODEL_API_KEY:-}
+      MATERIAL_FONT_PATH: ${MATERIAL_FONT_PATH:-}
+      MATERIAL_FFMPEG_BINARY: ${MATERIAL_FFMPEG_BINARY:-ffmpeg}
+      MATERIAL_GENERATOR_URL: ${MATERIAL_GENERATOR_URL:-}
+      MATERIAL_GENERATOR_API_KEY: ${MATERIAL_GENERATOR_API_KEY:-}
+    ports:
+      - "${SERVER_BIND_IP:-127.0.0.1}:8080:8080"
+    volumes:
+      - app_data:/app/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+volumes:
+  postgres_data:
+  app_data:

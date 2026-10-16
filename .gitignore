@@ -1,0 +1,45 @@
+# Credentials and local overrides
+.env
+.env.*
+!.env.example
+configs/*.local.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+
+# Runtime data, private screenshots, research and deployment logs
+.data/
+.cache/
+output/
+*.log
+*.sql.gz
+*.dump
+*.backup
+*.db
+*.sqlite*
+storage/
+backups/
+
+# Generated builds and dependencies
+bin/
+frontend/node_modules/
+frontend/dist/
+coverage/
+*.test
+*.out
+*.tsbuildinfo
+__pycache__/
+*.py[cod]
+
+# Local tools and editor state
+.playwright-cli/
+.agents/
+.codex/
+.aws/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

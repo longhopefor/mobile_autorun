@@ -1,0 +1,1 @@
+{"server_url":"ws://127.0.0.1:8080/device/media-connect","token":"PHONE_PAIRING_TOKEN","adb_binary":"/absolute/path/to/adb","serial":"USB_PHONE_SERIAL"}

@@ -1,0 +1,8 @@
+{
+  "server_url": "ws://127.0.0.1:8080/model/connect",
+  "token": "REPLACE_WITH_MODEL_CONNECTOR_PAIRING_TOKEN",
+  "codex_binary": "codex",
+  "workbuddy_node": "",
+  "workbuddy_entry": "",
+  "allowed_models": []
+}

@@ -1,0 +1,5 @@
+# Publish PostgreSQL only for a host-based Go development server.
+services:
+  postgres:
+    ports:
+      - "127.0.0.1:5432:5432"

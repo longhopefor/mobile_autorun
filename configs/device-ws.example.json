@@ -1,0 +1,1 @@
+{"mode":"ws","server_url":"ws://192.168.1.100:8080/device/connect","adb_binary":"/absolute/path/to/adb","serial":"USB_PHONE_SERIAL","token":"PHONE_PAIRING_TOKEN"}
